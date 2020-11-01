@@ -1,0 +1,148 @@
+﻿
+body {
+    /*font-family: 'Anton', sans-serif;*/
+    /*font-family: 'Kanit', sans-serif;*/
+    /*font-family: 'Pacifico', cursive;*/
+    /*font-family: 'Staatliches', cursive;*/
+}
+
+.bg-burningOrange {
+    background: #FF416C; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.aside {
+    background: #3F3F3F;
+    width: 20%;
+    padding: 10px 15px;
+    height: 100vh;
+}
+
+.aside-cabecera {
+    color: white;
+    background: #FF416C; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #FF4B2B, #FF416C); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.aside-ul {
+    list-style: none;
+    text-decoration: none !important;
+    margin-top: 10px;
+    padding: 10px 0px;
+}
+
+    .aside-ul a {
+        display: block;
+        color: white;
+        padding: 10px 15px;
+        transition: 0.3s all ease;
+    }
+
+        .aside-ul a:hover {
+            text-decoration: none;
+            transition: 0.3s all ease;
+        }
+
+            .aside-ul a:hover i {
+                transition: 0.3s all ease;
+                color: #FF4B2B !important;
+            }
+
+.section {
+    width: 80%;
+    /*background: #686868;*/
+    height:100vh;
+    overflow:scroll;
+}
+
+
+@media screen and (max-width: 600px) {
+    .aside {
+        display: none;
+    }
+
+    .section {
+        width: 100% !important;
+    }
+}
+
+
+
+/*  ---------------------------- BOTONES -------------------------------------- */
+
+.btn {
+    font-family: 'Staatliches', cursive;
+}
+
+.btn-eXpresso {
+    color: white;
+    border: none !important;
+    background: #355C7D; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #C06C84, #6C5B7B, #355C7D); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #C06C84, #6C5B7B, #355C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 5px 17px;
+    border-radius: 10px;
+}
+
+    .btn-eXpresso:hover {
+        color: white;
+        box-shadow: 0px 0px 8px #6C5B7B;
+    }
+
+
+.btn-LostMemory {
+    color: white;
+    border: none !important;
+    background: #DE6262; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFB88C, #DE6262); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFB88C, #DE6262); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 5px 17px;
+    border-radius: 10px;
+}
+    .btn-LostMemory:hover {
+        color: white;
+        box-shadow: 0px 0px 8px #FFB88C;
+    }
+
+/* ------------------- listados -------------------------------------- */
+
+
+.carta {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0px 0px 19px #A0A0A0;
+    margin: 8px;
+    transition: 0.3s all ease;
+}
+
+    .carta:hover {
+        transform: scale(1.01);
+        transition: 0.3s all ease;
+    }
+
+.carta-header {
+    background: #FF5F6D;
+    color: white;
+    padding: 10px 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight:700;
+}
+
+.carta-body {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}

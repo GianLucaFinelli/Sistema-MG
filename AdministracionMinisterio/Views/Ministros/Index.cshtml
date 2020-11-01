@@ -1,0 +1,35 @@
+﻿@model IEnumerable<AdministracionMinisterio.Models.Ministro>
+
+<div class="m-4">
+    <h2 class="">Ministros</h2>
+    <h5 class="">Los listados del ministros que gobernaron los ministerios</h5>
+</div>
+
+<div class="mx-4 my-3">
+    @Html.ActionLink("Elegir Nuevo Ministro", "Create", null, new { @class = "btn btn-LostMemory" })
+</div>
+
+
+<div class="border-bottom mx-4 mt-5">
+    <h6>Listado de Ministros</h6>
+</div>
+<div class="m-4 d-flex justify-content-start flex-wrap">
+    @foreach (var item in Model)
+    {
+        <div class="carta">
+            <div class="carta-header">
+                <span class="text-dark">@Html.DisplayNameFor(model => model.Funcionario.Nombre)</span> : <span class="ml-2">@Html.DisplayFor(modelItem => item.Funcionario.Nombre)</span>
+            </div>
+            <div class="carta-body">
+                <div><strong>Ministro Anterior:</strong> <span class="ml-2">@Html.DisplayFor(modelItem => item.Funcionario.Nombre)</span></div>
+                <div><strong>@Html.DisplayNameFor(model => model.FechaDeIngreso):</strong> <span class="ml-2">@item.FechaDeIngreso.ToString("dd/MM/yyyy") </span></div>
+                <div><strong>@Html.DisplayNameFor(model => model.FechaDeEgreso):</strong> <span class="ml-2">@item.FechaDeEgreso.ToString("dd/MM/yyyy")</span></div>
+                <div>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

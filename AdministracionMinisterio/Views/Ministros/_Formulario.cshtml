@@ -1,0 +1,75 @@
+﻿@model AdministracionMinisterio.Models.Ministro
+
+
+<h2>Elegir proximo ministro</h2>
+
+@if (ViewBag.funcionarioNotFound != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.funcionarioNotFound
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-row">
+            <div class="col-sm-12 col-md-3">
+                <div class="form-group">
+                    <label>Funcionario</label>
+                    @if (Model != null)
+                    {
+                        @Html.EditorFor(model => model.Funcionario.Nombre, null, new { htmlAttributes = new { @class = "form-control" , @readonly="readonly"} })
+                    }
+                    else
+                    {
+                        @Html.DropDownList("IdFuncionario", null, htmlAttributes: new { @class = "form-control" })
+                    }
+                    @Html.ValidationMessageFor(model => model.IdFuncionario, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FechaDeIngreso, htmlAttributes: new { @class = "control-label" })
+                    @if (Model == null)
+                    {
+                        @Html.EditorFor(model => model.FechaDeIngreso, null, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                    }
+                    else
+                    {
+                        var fechaIgreso = Model.FechaDeIngreso.ToString("dd/MM/yyyy");
+                        @Html.EditorFor(model => model.FechaDeIngreso, null, new { htmlAttributes = new { @class = "form-control", type = "datetime", @Value= fechaIgreso } })
+                    }
+                    @*<input type="date" name="FechaDeIngreso" id="FechaDeIngreso" class="form-control" value="" />*@
+                    @Html.ValidationMessageFor(model => model.FechaDeIngreso, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-3">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FechaDeEgreso, htmlAttributes: new { @class = "control-label" })
+                    @if (Model == null)
+                    {
+                        @Html.EditorFor(model => model.FechaDeEgreso, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                    }
+                    else
+                    {
+                        var fechaEgreso = Model.FechaDeEgreso.ToString("dd/MM/yyyy");
+                        @Html.EditorFor(model => model.FechaDeEgreso, new { htmlAttributes = new { @class = "form-control", @type = "datetime" , @value =fechaEgreso } })
+                    }
+                    @*<input type="date" name="FechaDeEgreso" id="FechaDeEgreso" class="form-control" value="" />*@
+                    @Html.ValidationMessageFor(model => model.FechaDeEgreso, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Elegir" class="btn btn-info" />
+            @Html.ActionLink("Volver Atras", "Index", null, new { @class = " btn btn-secondary" })
+        </div>
+    </div>
+}
