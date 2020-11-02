@@ -35,7 +35,7 @@
             </div>
             <div class="col-sm-12 col-md-3">
                 <div class="form-group">
-                    @Html.LabelFor(model => model.FechaDeIngreso, htmlAttributes: new { @class = "control-label" })
+                    @Html.LabelFor(model => model.FechaDeIngreso,"Fecha de Ingreso", htmlAttributes: new { @class = "control-label" })
                     @if (Model == null)
                     {
                         @Html.EditorFor(model => model.FechaDeIngreso, null, new { htmlAttributes = new { @class = "form-control", type = "date" } })
@@ -51,7 +51,7 @@
             </div>
             <div class="col-sm-12 col-md-3">
                 <div class="form-group">
-                    @Html.LabelFor(model => model.FechaDeEgreso, htmlAttributes: new { @class = "control-label" })
+                    @Html.LabelFor(model => model.FechaDeEgreso,"Fecha de Egreso", htmlAttributes: new { @class = "control-label" })
                     @if (Model == null)
                     {
                         @Html.EditorFor(model => model.FechaDeEgreso, new { htmlAttributes = new { @class = "form-control", @type = "date" } })

@@ -43,6 +43,8 @@ namespace AdministracionMinisterio.Controllers
 
             if (ModelState.IsValid)
             {
+                var ministroAnterior = db.Ministro.Where(m => m.Id == (ministro.Id - 1) && m.Funcionario.Ministerio.Id == ministro.Funcionario.Ministerio.Id).FirstOrDefault();
+                ministro.MinistroAnterior = ministroAnterior.Id;
                 db.Ministro.Add(ministro);
                 db.SaveChanges();
                 return RedirectToAction("Index");
