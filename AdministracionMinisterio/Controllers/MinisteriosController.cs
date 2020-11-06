@@ -7,12 +7,14 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AdministracionMinisterio.Models;
+using AdministracionMinisterio.Services;
 
 namespace AdministracionMinisterio.Controllers
 {
     public class MinisteriosController : Controller
     {
         private Entities db = new Entities();
+        private ExportarPdfService exportarPdfService = new ExportarPdfService();
 
         // GET: Ministerios
         public ActionResult Index()
@@ -130,6 +132,20 @@ namespace AdministracionMinisterio.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public void Descargar()
+        {
+            var list = db.Ministerio.ToList();
+
+            byte[] bytes = exportarPdfService.Ministerios(list);
+            //// Now that you have all the bytes representing the PDF report, buffer it and send it to the client.
+            Response.Buffer = true;
+            Response.Clear();
+            Response.ContentType = string.Empty;
+            Response.AddHeader("content-disposition", "inline; filename=" + "ListaDeMinisterios" + ".pdf");
+            Response.BinaryWrite(bytes); // create the file
+            Response.Flush(); // send it to the client to download
         }
     }
 }

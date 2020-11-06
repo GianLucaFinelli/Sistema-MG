@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="MinisteriosDataSet" targetNamespace="http://tempuri.org/MinisteriosDataSet.xsd" xmlns:mstns="http://tempuri.org/MinisteriosDataSet.xsd" xmlns="http://tempuri.org/MinisteriosDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="MinisteriosDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="MinisteriosDataSet" msprop:Generator_UserDSName="MinisteriosDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Ministerios" msprop:Generator_TableClassName="MinisteriosDataTable" msprop:Generator_TableVarName="tableMinisterios" msprop:Generator_RowChangedName="MinisteriosRowChanged" msprop:Generator_TablePropName="Ministerios" msprop:Generator_RowDeletingName="MinisteriosRowDeleting" msprop:Generator_RowChangingName="MinisteriosRowChanging" msprop:Generator_RowEvHandlerName="MinisteriosRowChangeEventHandler" msprop:Generator_RowDeletedName="MinisteriosRowDeleted" msprop:Generator_RowClassName="MinisteriosRow" msprop:Generator_UserTableName="Ministerios" msprop:Generator_RowEvArgName="MinisteriosRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Ministerio" msprop:Generator_ColumnVarNameInTable="columnMinisterio" msprop:Generator_ColumnPropNameInRow="Ministerio" msprop:Generator_ColumnPropNameInTable="MinisterioColumn" msprop:Generator_UserColumnName="Ministerio" type="xs:string" minOccurs="0" />
+              <xs:element name="Localidad" msprop:Generator_ColumnVarNameInTable="columnLocalidad" msprop:Generator_ColumnPropNameInRow="Localidad" msprop:Generator_ColumnPropNameInTable="LocalidadColumn" msprop:Generator_UserColumnName="Localidad" type="xs:string" minOccurs="0" />
+              <xs:element name="Direccion" msprop:Generator_ColumnVarNameInTable="columnDireccion" msprop:Generator_ColumnPropNameInRow="Direccion" msprop:Generator_ColumnPropNameInTable="DireccionColumn" msprop:Generator_UserColumnName="Direccion" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Fecha" msprop:Generator_TableClassName="FechaDataTable" msprop:Generator_TableVarName="tableFecha" msprop:Generator_TablePropName="Fecha" msprop:Generator_RowDeletingName="FechaRowDeleting" msprop:Generator_RowChangingName="FechaRowChanging" msprop:Generator_RowEvHandlerName="FechaRowChangeEventHandler" msprop:Generator_RowDeletedName="FechaRowDeleted" msprop:Generator_UserTableName="Fecha" msprop:Generator_RowChangedName="FechaRowChanged" msprop:Generator_RowEvArgName="FechaRowChangeEvent" msprop:Generator_RowClassName="FechaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Dia" msprop:Generator_ColumnVarNameInTable="columnDia" msprop:Generator_ColumnPropNameInRow="Dia" msprop:Generator_ColumnPropNameInTable="DiaColumn" msprop:Generator_UserColumnName="Dia" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
