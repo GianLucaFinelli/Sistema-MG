@@ -27,7 +27,7 @@ namespace AdministracionMinisterio.Models
     
         public virtual DbSet<Funcionario> Funcionario { get; set; }
         public virtual DbSet<Ministerio> Ministerio { get; set; }
-        public virtual DbSet<Ministro> Ministro { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Ministro> Ministro { get; set; }
     }
 }

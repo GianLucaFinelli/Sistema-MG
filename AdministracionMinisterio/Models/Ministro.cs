@@ -18,7 +18,6 @@ namespace AdministracionMinisterio.Models
         public int IdFuncionario { get; set; }
         public System.DateTime FechaDeIngreso { get; set; }
         public System.DateTime FechaDeEgreso { get; set; }
-        public Nullable<int> MinistroAnterior { get; set; }
     
         public virtual Funcionario Funcionario { get; set; }
     }

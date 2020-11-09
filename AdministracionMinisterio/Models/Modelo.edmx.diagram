@@ -7,9 +7,9 @@
       <Diagram DiagramId="79c8510c994e4b52a926c01de6ca9458" Name="Diagram1">
         <EntityTypeShape EntityType="MinistrosGobModel.Funcionario" Width="1.5" PointX="3" PointY="1" />
         <EntityTypeShape EntityType="MinistrosGobModel.Ministerio" Width="1.5" PointX="0.75" PointY="1.25" />
-        <EntityTypeShape EntityType="MinistrosGobModel.Ministro" Width="1.5" PointX="5.25" PointY="1.125" />
         <EntityTypeShape EntityType="MinistrosGobModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" />
         <AssociationConnector Association="MinistrosGobModel.FK_Funcionario_Ministerio" />
+        <EntityTypeShape EntityType="MinistrosGobModel.Ministro" Width="1.5" PointX="5.25" PointY="1.25" />
         <AssociationConnector Association="MinistrosGobModel.FK_Ministro_Funcionario" />
       </Diagram>
     </edmx:Diagrams>

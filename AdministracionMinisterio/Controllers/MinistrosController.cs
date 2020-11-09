@@ -30,8 +30,6 @@ namespace AdministracionMinisterio.Controllers
         }
 
         // POST: Ministros/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,IdFuncionario,FechaDeIngreso,FechaDeEgreso,MinistroAnterior")] Ministro ministro)
@@ -42,10 +40,21 @@ namespace AdministracionMinisterio.Controllers
                 return View(ministro);
             }
 
+            var funcionario = db.Funcionario.Where(f => f.Id == ministro.IdFuncionario).First();
+            ministro.Funcionario = funcionario;
+            var ministrosExistentesEnEsePeriodo = db.Ministro
+                .Where(m => m.FechaDeIngreso >= ministro.FechaDeIngreso &&
+                        m.FechaDeEgreso <= ministro.FechaDeEgreso &&
+                        m.Funcionario.IdMinisterio == ministro.Funcionario.IdMinisterio)
+                .Count();
+            if (ministrosExistentesEnEsePeriodo > 1)
+            {
+                ViewBag.ministroEncontrado = "Fueron encontrados " + ministrosExistentesEnEsePeriodo + " ministros, en ese periodo de tiempo";
+                return View(ministro);
+            }
+
             if (ModelState.IsValid)
             {
-                var ministroAnterior = db.Ministro.Where(m => m.Id == (ministro.Id - 1) && m.Funcionario.Ministerio.Id == ministro.Funcionario.Ministerio.Id).FirstOrDefault();
-                ministro.MinistroAnterior = ministroAnterior.Id;
                 db.Ministro.Add(ministro);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -80,7 +89,7 @@ namespace AdministracionMinisterio.Controllers
         {
             if (ModelState.IsValid)
             {
-               var editMinistro = db.Ministro.Find(ministro.Id);
+                var editMinistro = db.Ministro.Find(ministro.Id);
                 editMinistro.FechaDeEgreso = ministro.FechaDeEgreso;
                 editMinistro.FechaDeIngreso = ministro.FechaDeIngreso;
                 db.SaveChanges();
